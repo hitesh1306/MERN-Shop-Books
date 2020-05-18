@@ -35,20 +35,20 @@ app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
 
-// routes middleware
-app.use('/', authRoutes);
-app.use('/', userRoutes);
-app.use('/', categoryRoutes);
-app.use('/', productRoutes);
-app.use('/', braintreeRoutes);
-app.use('/', orderRoutes);
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
 }
+
+// routes middleware
+app.use('/api', authRoutes);
+app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
+app.use('/api', braintreeRoutes);
+app.use('/api', orderRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

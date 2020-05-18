@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
-import { itemTotal } from './cartHelpers';
 import Logo from './logo/booksicon1.svg';
 
 const isActive = (history, path) => {
