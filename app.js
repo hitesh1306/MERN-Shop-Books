@@ -22,7 +22,7 @@ const port = process.env.PORT || 8000;
 
 // db
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useCreateIndex: true,
   })
