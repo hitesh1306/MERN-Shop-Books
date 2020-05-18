@@ -27,20 +27,12 @@ mongoose
   })
   .then(() => console.log('DB Connected'));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-  });
-}
-
 // middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
-
 // routes middleware
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
@@ -49,6 +41,14 @@ app.use('/api', productRoutes);
 app.use('/api', braintreeRoutes);
 app.use('/api', orderRoutes);
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+// Very last
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
