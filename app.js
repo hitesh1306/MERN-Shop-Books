@@ -17,7 +17,6 @@ const orderRoutes = require('./routes/order');
 
 // app
 const app = express();
-
 const port = process.env.PORT || 8000;
 
 // db
@@ -28,19 +27,19 @@ mongoose
   })
   .then(() => console.log('DB Connected'));
 
-// middlewares
-app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(expressValidator());
-app.use(cors());
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
 }
+
+// middlewares
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(expressValidator());
+app.use(cors());
 
 // routes middleware
 app.use('/api', authRoutes);
