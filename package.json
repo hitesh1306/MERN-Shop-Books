@@ -1,10 +1,11 @@
 {
-  "name": "",
+  "name": "booksapp",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "Hitesh Jambhulkar",
