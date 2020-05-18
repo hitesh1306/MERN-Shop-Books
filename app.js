@@ -18,6 +18,8 @@ const orderRoutes = require('./routes/order');
 // app
 const app = express();
 
+const port = process.env.PORT || 8000;
+
 // db
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -48,8 +50,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
 }
-
-const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
