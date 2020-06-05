@@ -851,3 +851,16 @@ a {
 .category-header {
   color: rgb(48, 45, 70);
 }
+.user-dashboard-header {
+  color: black;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 20px;
+}
+.user-dashboard-p {
+  color: black;
+  font-size: 18px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.form-search {
+  border: none;
+}
