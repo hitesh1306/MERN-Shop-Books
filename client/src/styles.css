@@ -864,3 +864,12 @@ a {
 .form-search {
   border: none;
 }
+
+.user-form-control {
+  width: 500px;
+}
+.profile-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
